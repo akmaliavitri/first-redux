@@ -54,10 +54,18 @@ export const getUsersDetail = (id) => {
   };
 };
 
-export const deleteUserDetail = () => {
+export const deleteDataUser = () => {
   return (dispatch) => {
     dispatch({
       type: GET_USERS_DETAIL,
+      payload: {
+        data: false,
+        errorMessage: false,
+      },
+    });
+
+    dispatch({
+      type: POST_USER_CREATE,
       payload: {
         data: false,
         errorMessage: false,
@@ -74,7 +82,6 @@ export const postUserCreate = (data) => {
         data
       )
       .then(function (response) {
-        console.log(response)
         dispatch({
           type: POST_USER_CREATE,
           payload: {
