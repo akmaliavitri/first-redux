@@ -130,3 +130,19 @@ export const putUserUpdate = (data, id) => {
       });
   };
 };
+
+export const deleteUser = (id) => {
+  return (dispatch) => {
+    axios
+      .delete(
+        "http://my-json-server.typicode.com/akmaliavitri/fakedb/users/" + id,
+        
+      )
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
+  };
+};
