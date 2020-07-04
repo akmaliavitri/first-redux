@@ -33,6 +33,16 @@ const renderField = ({
     </Col>
   </Row>
 );
+
+const mapStateToProps = (state) => {
+  return {
+    initialValues: {
+      username : state.users.getUserDetail.username,
+      email : state.users.getUserDetail.email,
+      password: state.users.getUserDetail.password,
+    }
+  };
+};
 class FormComponent extends Component {
   render() {
     return (
@@ -94,4 +104,4 @@ FormComponent = reduxForm({
   enableReinitialize: true, //bisa dipakai untuk create dan untuk update
 })(FormComponent);
 
-export default connect()(FormComponent);
+export default connect(mapStateToProps, null)(FormComponent);
