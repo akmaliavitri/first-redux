@@ -1,9 +1,11 @@
-import {GET_USERS_LIST } from '../actions/userAction'
+import { GET_USERS_LIST, GET_USERS_DETAIL } from "../actions/userAction";
 
 let initialState = {
   getUserList: false,
+  getUserDetail: false,
   errorUserList: false,
-  title: "Ecommerce", 
+  errorUserDetail: false,
+  title: "Ecommerce",
 };
 
 const users = (state = initialState, action) => {
@@ -12,11 +14,18 @@ const users = (state = initialState, action) => {
       return {
         ...state,
         getUserList: action.payload.data,
-        errorUserList: action.payload.errorMessage
-      }
-  
+        errorUserList: action.payload.errorMessage,
+      };
+
+    case GET_USERS_DETAIL:
+      return {
+        ...state,
+        getUserDetail: action.payload.data,
+        errorUserDetail: action.payload.errorMessage,
+      };
+
     default:
-      return state
+      return state;
   }
 };
 
